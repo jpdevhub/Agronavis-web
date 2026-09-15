@@ -79,20 +79,24 @@ no emoji, flat photo overlays only.
 This project was developed on an exFAT volume, where macOS writes AppleDouble
 `._*` sidecar files next to everything. Next.js picks those up and misbehaves:
 the image optimizer serves the sidecar bytes instead of the image, and
-Turbopack's filesystem cache fails to open. Two settings in `next.config.ts`
-work around it:
+Turbopack's filesystem cache fails to open.
+
+`next.config.ts` detects the build host and only applies the workarounds
+locally, so nothing needs changing by hand:
 
 ```ts
-images: { unoptimized: true }
+const onCI = !!process.env.VERCEL || process.env.CI === '1' || process.env.CI === 'true';
+
+images: { unoptimized: !onCI }
 experimental: {
-  turbopackFileSystemCacheForDev: false,
-  turbopackFileSystemCacheForBuild: false,
+  turbopackFileSystemCacheForDev: onCI,
+  turbopackFileSystemCacheForBuild: onCI,
 }
 ```
 
-On an APFS volume (or any Linux CI runner) both can be removed to get image
-optimization and cross-run caching back. Hero images are pre-compressed to
-~100–170 KB either way.
+On Vercel or any Linux CI runner you get image optimization and cross-run
+caching; locally you get the pre-compressed originals (~100-170 KB each) and a
+cold Turbopack start.
 
 ## Deploying
 
