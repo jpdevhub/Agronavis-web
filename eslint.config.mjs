@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // macOS writes these AppleDouble sidecars on non-APFS volumes
+    "**/._*",
   ]),
 ]);
 
