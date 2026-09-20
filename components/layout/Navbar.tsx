@@ -76,7 +76,7 @@ export default function Navbar() {
               href="/pricing"
               className="hidden rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-on-accent transition-colors hover:bg-accent-hover sm:inline-flex"
             >
-              Start free
+              Join the waitlist
             </Link>
             <button
               onClick={() => setMenuOpen(!menuOpen)}
@@ -120,11 +120,11 @@ export default function Navbar() {
               ))}
             </nav>
             <Link
-              href="/pricing"
+              href="/blog#waitlist"
               onClick={() => setMenuOpen(false)}
               className="mt-8 w-full rounded-full bg-accent py-4 text-center font-semibold text-on-accent"
             >
-              Start free
+              Join the waitlist
             </Link>
           </motion.div>
         )}

@@ -39,7 +39,7 @@ const tiers = [
     price: 'Free',
     desc: 'Trained agriculture students answering the questions that come up every season.',
     features: ['Crop disease identification', 'Soil health questions', 'Advice over WhatsApp', 'Reply within two hours'],
-    cta: 'Start free',
+    cta: 'Join the waitlist',
     href: '/pricing',
     featured: false,
   },

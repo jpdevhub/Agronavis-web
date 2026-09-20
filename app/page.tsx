@@ -64,12 +64,14 @@ export default function LandingPage() {
 
           <Reveal delay={0.28}>
             <div className="mt-10 flex flex-wrap justify-center gap-3">
-              <Button href="/pricing">Start free</Button>
+              <Button href="/blog#waitlist">Join the waitlist</Button>
               <Button href="/features" variant="outline">
                 See how it works
               </Button>
             </div>
-            <p className="mt-6 text-[0.8125rem] text-white/45">No card. No demo call. No one named Chad emailing you.</p>
+            <p className="mt-6 text-[0.8125rem] text-white/45">
+              Launching soon. No card, no demo call, no one named Chad emailing you.
+            </p>
           </Reveal>
         </div>
       </section>
@@ -132,10 +134,11 @@ export default function LandingPage() {
           <Reveal>
             <h2 className="type-h2 mx-auto max-w-[20ch] text-balance">Go touch grass. We will watch the rest.</h2>
             <p className="mx-auto mt-5 max-w-[44ch] text-base font-light text-ink-muted">
-              The free plan covers five acres forever. Not a trial. Not a hook. Just free.
+              The free plan will cover five acres forever. Not a trial, not a hook. We will tell you
+              the day it opens.
             </p>
             <div className="mt-9 flex justify-center">
-              <Button href="/pricing">Start free</Button>
+              <Button href="/blog#waitlist">Join the waitlist</Button>
             </div>
           </Reveal>
         </div>

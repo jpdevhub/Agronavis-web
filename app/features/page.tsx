@@ -133,8 +133,8 @@ export default function FeaturesPage() {
           <Reveal>
             <h2 className="type-display mx-auto max-w-[14ch] text-balance">See it on your own field.</h2>
             <div className="mt-10 flex justify-center">
-              <Button href="/pricing">
-                Start free <ArrowRight size={16} />
+              <Button href="/blog#waitlist">
+                Join the waitlist <ArrowRight size={16} />
               </Button>
             </div>
           </Reveal>

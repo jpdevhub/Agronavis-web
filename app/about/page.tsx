@@ -85,7 +85,7 @@ export default function AboutPage() {
               Five acres, free, today. Bring the other farm later.
             </p>
             <div className="mt-9 flex justify-center">
-              <Button href="/pricing">Start free</Button>
+              <Button href="/blog#waitlist">Join the waitlist</Button>
             </div>
           </Reveal>
         </div>

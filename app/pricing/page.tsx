@@ -18,7 +18,7 @@ const tiers = [
     suffix: 'forever',
     desc: 'For anyone with a field and a phone.',
     features: ['Up to 5 acres', 'Weekly satellite scans', 'WhatsApp alerts', 'Free student expert access'],
-    cta: 'Start free',
+    cta: 'Join the waitlist',
     href: '/for-farmers',
     variant: 'outline' as const,
     featured: false,
@@ -35,7 +35,7 @@ const tiers = [
       'Priority expert booking',
       'End-of-season report',
     ],
-    cta: 'Get Grower',
+    cta: 'Join the waitlist',
     href: '/consult',
     variant: 'primary' as const,
     featured: true,
@@ -65,7 +65,7 @@ const comparison: { feature: string; civilian: string | boolean; grower: string 
 const faqs = [
   {
     q: 'Is the free plan actually free?',
-    a: 'Yes. Forever, no card, no countdown timer quietly running in the background. We are not your ex.',
+    a: 'Yes, and forever. No card, no countdown timer quietly running in the background. Nothing is charged today because nothing is open for signup yet.',
   },
   {
     q: 'Can I upgrade later?',
@@ -107,7 +107,8 @@ export default function PricingPage() {
           </Reveal>
           <Reveal delay={0.14}>
             <p className="mx-auto mt-6 max-w-[46ch] text-[1.0625rem] font-light leading-[1.75] text-ink-muted">
-              Read the whole thing in twenty seconds. There is no page two and nothing in grey six-point type.
+              Read the whole thing in twenty seconds. There is no page two and nothing in grey
+              six-point type. Nothing is charged yet either: these are the plans for launch.
             </p>
           </Reveal>
         </div>
@@ -217,9 +218,12 @@ export default function PricingPage() {
       <section className="px-6 py-24 text-center md:py-32">
         <div className="mx-auto w-full max-w-6xl">
           <Reveal>
-            <h2 className="type-h2 mx-auto max-w-[20ch] text-balance">Pick a plan, or do not. The free one works.</h2>
+            <h2 className="type-h2 mx-auto max-w-[20ch] text-balance">The free one will always be free.</h2>
+            <p className="mx-auto mt-5 max-w-[44ch] text-base font-light text-ink-muted">
+              Join the waitlist and we will tell you the day plans open.
+            </p>
             <div className="mt-9 flex justify-center">
-              <Button href="/for-farmers">Start free</Button>
+              <Button href="/for-farmers">Join the waitlist</Button>
             </div>
           </Reveal>
         </div>

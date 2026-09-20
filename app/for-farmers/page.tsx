@@ -61,7 +61,7 @@ export default function ForFarmersPage() {
               nothing extra to charge, no training required.
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
-              <Button href="/pricing">Start free</Button>
+              <Button href="/blog#waitlist">Join the waitlist</Button>
               <Button href="/features" variant="outline">
                 See how it works
               </Button>
