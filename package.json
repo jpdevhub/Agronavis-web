@@ -4,6 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "clean": "rm -rf .next && find . -name '._*' -not -path './node_modules/*' -delete 2>/dev/null || true",
+    "fresh": "npm run clean && next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
