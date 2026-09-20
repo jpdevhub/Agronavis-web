@@ -8,7 +8,7 @@ import Button from '@/components/ui/Button';
 export const metadata: Metadata = {
   title: 'Pricing without asterisks',
   description:
-    'Free forever for five acres, ₹999/month for fifty, custom for everyone counting hectares in millions. Read the whole thing in twenty seconds.',
+    'Free forever for five acres, ₹999 a month for fifty, custom at scale. The plans Agronavis opens with, in twenty seconds.',
 };
 
 const tiers = [
@@ -46,7 +46,7 @@ const tiers = [
     suffix: '',
     desc: 'For states, co-ops and anyone counting hectares in millions.',
     features: ['Unlimited acreage', 'Full API access', 'Multi-sensor verification', 'Named account team'],
-    cta: 'Talk to sales',
+    cta: 'Talk to us',
     href: '/for-enterprise',
     variant: 'outline' as const,
     featured: false,
@@ -127,7 +127,7 @@ export default function PricingPage() {
                 >
                   {tier.featured && (
                     <span className="absolute top-6 right-6 rounded-full border border-accent-line bg-accent-soft px-3 py-1 text-[0.625rem] font-bold tracking-[0.1em] uppercase text-accent">
-                      Most picked
+                      Planned default
                     </span>
                   )}
                   <p className="text-[0.6875rem] font-semibold tracking-[0.14em] uppercase text-ink-faint">
