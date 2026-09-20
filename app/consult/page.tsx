@@ -4,6 +4,7 @@ import { MessageSquare, Zap, Video, Check } from 'lucide-react';
 import { Reveal, Stagger, StaggerItem } from '@/components/ui/Reveal';
 import EyebrowLabel from '@/components/ui/EyebrowLabel';
 import Button from '@/components/ui/Button';
+import ContactForm from '@/components/forms/ContactForm';
 
 export const metadata: Metadata = {
   title: 'Consult: talk to someone who studied soil for nine years',
@@ -77,7 +78,7 @@ export default function ConsultPage() {
               cold.
             </p>
             <div className="mt-10">
-              <Button href="#experts">Find an expert</Button>
+              <Button href="#ask">Ask a question</Button>
             </div>
           </Reveal>
         </div>
@@ -138,6 +139,29 @@ export default function ConsultPage() {
               </StaggerItem>
             ))}
           </Stagger>
+        </div>
+      </section>
+
+      {/* CONTACT FORM */}
+      <section id="ask" className="scroll-mt-nav border-t border-hairline px-6 py-24 md:py-32">
+        <div className="mx-auto grid w-full max-w-6xl gap-12 lg:grid-cols-[0.8fr_1fr] lg:gap-20">
+          <Reveal>
+            <EyebrowLabel>Ask a question</EyebrowLabel>
+            <h2 className="type-h2 max-w-[16ch] text-balance">Tell us what your field is doing.</h2>
+            <p className="mt-5 max-w-[42ch] text-base font-light leading-[1.8] text-ink-muted">
+              Describe the problem in your own words. We route it to the right specialist and come back
+              to you, usually within a working day.
+            </p>
+            <p className="mt-6 text-[0.9375rem] font-light text-ink-muted">
+              Would rather write an email?{' '}
+              <a href="mailto:contact@agronavis.in" className="text-accent hover:opacity-80">
+                contact@agronavis.in
+              </a>
+            </p>
+          </Reveal>
+          <Reveal delay={0.12}>
+            <ContactForm />
+          </Reveal>
         </div>
       </section>
 

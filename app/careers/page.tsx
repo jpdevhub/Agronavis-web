@@ -4,6 +4,7 @@ import { ArrowUpRight } from 'lucide-react';
 import { Reveal, Stagger, StaggerItem } from '@/components/ui/Reveal';
 import EyebrowLabel from '@/components/ui/EyebrowLabel';
 import Button from '@/components/ui/Button';
+import CareersForm from '@/components/forms/CareersForm';
 
 export const metadata: Metadata = {
   title: 'Careers: come build the boring parts that matter',
@@ -99,7 +100,7 @@ export default function CareersPage() {
             {roles.map((role) => (
               <StaggerItem key={role.title}>
                 <a
-                  href={`mailto:careers@agronavis.com?subject=${encodeURIComponent(role.title)}`}
+                  href="#apply"
                   className="group flex flex-col gap-2 border-b border-hairline bg-canvas px-6 py-6 transition-colors last:border-b-0 hover:bg-raised sm:flex-row sm:items-center sm:justify-between sm:gap-6"
                 >
                   <div>
@@ -119,11 +120,7 @@ export default function CareersPage() {
 
           <Reveal delay={0.1}>
             <p className="mt-8 text-[0.9375rem] font-light leading-[1.75] text-ink-muted">
-              Nothing fits but you are certain you belong here? Write to{' '}
-              <a href="mailto:careers@agronavis.com" className="text-accent hover:opacity-80">
-                careers@agronavis.com
-              </a>{' '}
-              and tell us what you would fix first. We read all of them. We reply to all of them, eventually,
+              Every role uses the same form below. We read all of them, and we reply to all of them,
               which is a promise we are told is unusual.
             </p>
           </Reveal>
@@ -153,6 +150,23 @@ export default function CareersPage() {
           </Stagger>
         </div>
       </section>
+      {/* APPLY */}
+      <section id="apply" className="scroll-mt-nav border-t border-hairline bg-surface px-6 py-24 md:py-32">
+        <div className="mx-auto grid w-full max-w-6xl gap-12 lg:grid-cols-[0.8fr_1fr] lg:gap-20">
+          <Reveal>
+            <EyebrowLabel>Apply</EyebrowLabel>
+            <h2 className="type-h2 max-w-[16ch] text-balance">One form. No account to create.</h2>
+            <p className="mt-5 max-w-[42ch] text-base font-light leading-[1.8] text-ink-muted">
+              Nothing on the list fits but you are certain you belong here? Put your own title in the
+              role field and tell us what you would fix first.
+            </p>
+          </Reveal>
+          <Reveal delay={0.12}>
+            <CareersForm />
+          </Reveal>
+        </div>
+      </section>
+
     </>
   );
 }

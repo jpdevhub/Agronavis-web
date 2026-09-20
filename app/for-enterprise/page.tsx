@@ -6,6 +6,7 @@ import EyebrowLabel from '@/components/ui/EyebrowLabel';
 import StatBlock from '@/components/ui/StatBlock';
 import FeatureCard from '@/components/ui/FeatureCard';
 import Button from '@/components/ui/Button';
+import DemoForm from '@/components/forms/DemoForm';
 
 export const metadata: Metadata = {
   title: 'Enterprise: every hectare, accounted for',
@@ -56,7 +57,7 @@ export default function ForEnterprisePage() {
               hectares nobody has physically visited since 2019.
             </p>
             <div className="mt-10 flex justify-center">
-              <Button href="/consult" variant="outline">
+              <Button href="#demo" variant="outline">
                 Request a demo <ArrowRight size={16} />
               </Button>
             </div>
@@ -95,21 +96,29 @@ export default function ForEnterprisePage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="px-6 py-24 text-center md:py-32">
-        <div className="mx-auto w-full max-w-6xl">
+      {/* DEMO FORM */}
+      <section id="demo" className="scroll-mt-nav border-t border-hairline px-6 py-24 md:py-32">
+        <div className="mx-auto grid w-full max-w-6xl gap-12 lg:grid-cols-[0.8fr_1fr] lg:gap-20">
           <Reveal>
-            <h2 className="type-h2">Ready to deploy at scale?</h2>
-            <p className="mx-auto mt-5 max-w-[46ch] text-base font-light text-ink-muted">
-              Send us the acreage and we come back with a rollout plan inside 48 hours. Nobody will suggest we
-              circle back next quarter.
+            <EyebrowLabel>Request a demo</EyebrowLabel>
+            <h2 className="type-h2 max-w-[18ch] text-balance">Send us the acreage.</h2>
+            <p className="mt-5 max-w-[42ch] text-base font-light leading-[1.8] text-ink-muted">
+              We come back with a rollout plan inside 48 hours. Nobody will suggest we circle back next
+              quarter.
             </p>
-            <div className="mt-9 flex justify-center">
-              <Button href="/consult">Request a demo</Button>
-            </div>
+            <p className="mt-6 text-[0.9375rem] font-light text-ink-muted">
+              Procurement or security review?{' '}
+              <a href="mailto:contact@agronavis.in" className="text-accent hover:opacity-80">
+                contact@agronavis.in
+              </a>
+            </p>
+          </Reveal>
+          <Reveal delay={0.12}>
+            <DemoForm />
           </Reveal>
         </div>
       </section>
+
     </>
   );
 }
