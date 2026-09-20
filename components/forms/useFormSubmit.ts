@@ -5,7 +5,7 @@ import { submitForm, type FormEndpoint } from '@/lib/api';
 
 type Status = 'idle' | 'sending' | 'sent' | 'error';
 
-export function useFormSubmit(endpoint: FormEndpoint) {
+export function useFormSubmit(endpoint: FormEndpoint, { multipart = false } = {}) {
   const [status, setStatus] = useState<Status>('idle');
   const [error, setError] = useState('');
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
@@ -16,9 +16,10 @@ export function useFormSubmit(endpoint: FormEndpoint) {
       if (status === 'sending') return;
 
       const form = event.currentTarget;
-      const payload = Object.fromEntries(
-        Array.from(new FormData(form).entries()).map(([k, v]) => [k, String(v)]),
-      );
+      const data = new FormData(form);
+      const payload = multipart
+        ? data
+        : Object.fromEntries(Array.from(data.entries()).map(([k, v]) => [k, String(v)]));
 
       setStatus('sending');
       setError('');
@@ -36,7 +37,7 @@ export function useFormSubmit(endpoint: FormEndpoint) {
       setError(result.error);
       setFieldErrors(result.fields ?? {});
     },
-    [endpoint, status],
+    [endpoint, multipart, status],
   );
 
   const reset = useCallback(() => {

@@ -9,13 +9,15 @@ export type SubmitResult =
 
 export async function submitForm(
   endpoint: FormEndpoint,
-  payload: Record<string, string>,
+  payload: Record<string, string> | FormData,
 ): Promise<SubmitResult> {
   try {
+    const isFormData = payload instanceof FormData;
     const response = await fetch(`${API_URL}/api/${endpoint}`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
+      // FormData sets its own multipart boundary; setting the header breaks it.
+      ...(isFormData ? {} : { headers: { 'Content-Type': 'application/json' } }),
+      body: isFormData ? payload : JSON.stringify(payload),
     });
 
     const data: unknown = await response.json().catch(() => null);
