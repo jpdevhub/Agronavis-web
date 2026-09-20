@@ -9,7 +9,7 @@ import ContactForm from '@/components/forms/ContactForm';
 export const metadata: Metadata = {
   title: 'Consult: talk to someone who studied soil for nine years',
   description:
-    'Agronomists, soil scientists and pest specialists on a call in minutes, in your own language. Free student experts, or certified specialists from ₹40/min.',
+    'Agronomists, soil scientists and pest specialists, in your own language. Free student experts, or certified specialists for urgent problems.',
 };
 
 const steps = [
@@ -28,15 +28,9 @@ const steps = [
   {
     num: '03',
     icon: <Video size={18} />,
-    title: 'Talk in minutes',
-    body: 'Live video or voice, right in the app. The average wait is shorter than the time it takes to boil water.',
+    title: 'Talk it through',
+    body: 'Live video or voice, right in the app, once you and the specialist agree a time.',
   },
-];
-
-const experts = [
-  { name: 'Dr. Ananya Rao', specialty: 'Soil scientist', rate: '₹40/min', initials: 'AR' },
-  { name: 'Thomas Miller', specialty: 'Pest management', rate: '₹45/min', initials: 'TM' },
-  { name: 'Priya Sharma', specialty: 'Irrigation', rate: 'Student expert, free', initials: 'PS' },
 ];
 
 const tiers = [
@@ -51,8 +45,8 @@ const tiers = [
   },
   {
     label: 'Certified specialists',
-    price: 'From ₹40/min',
-    desc: 'Certified soil, pest and irrigation experts for the problems that will not wait until tomorrow.',
+    price: 'Paid consultation',
+    desc: 'Certified soil, pest and irrigation experts for the problems that will not wait until tomorrow. We quote the rate before the call starts.',
     features: ['Live video consultation', 'They read your satellite data first', 'Written treatment plan', 'Follow-up included'],
     cta: 'Talk to a specialist',
     href: '/pricing',
@@ -74,8 +68,7 @@ export default function ConsultPage() {
           </Reveal>
           <Reveal delay={0.16}>
             <p className="mt-7 max-w-[48ch] text-[1.0625rem] font-light leading-[1.75] text-white/65">
-              Agronomists, soil scientists and pest specialists. In your language, on a call before your tea goes
-              cold.
+              Agronomists, soil scientists and pest specialists, answering in the language you ask in.
             </p>
             <div className="mt-10">
               <Button href="#ask">Ask a question</Button>
@@ -101,41 +94,6 @@ export default function ConsultPage() {
                 </div>
                 <h3 className="text-base font-semibold tracking-tight text-ink">{step.title}</h3>
                 <p className="mt-2.5 text-[0.9rem] font-light leading-[1.75] text-ink-muted">{step.body}</p>
-              </StaggerItem>
-            ))}
-          </Stagger>
-        </div>
-      </section>
-
-      {/* EXPERTS */}
-      <section id="experts" className="scroll-mt-nav border-t border-hairline px-6 py-24 md:py-32">
-        <div className="mx-auto w-full max-w-6xl">
-          <Reveal>
-            <EyebrowLabel>The network</EyebrowLabel>
-            <h2 className="type-h2 max-w-[22ch] text-balance">Real people. Real credentials. Online right now.</h2>
-          </Reveal>
-
-          <Stagger className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {experts.map((expert) => (
-              <StaggerItem key={expert.name} className="h-full">
-                <div className="h-full rounded-lg border border-hairline bg-surface p-7 text-center transition-colors hover:border-hairline-strong">
-                  <div className="mx-auto mb-4 flex h-18 w-18 items-center justify-center rounded-full border-2 border-accent-line bg-accent-soft text-lg font-semibold text-accent">
-                    {expert.initials}
-                  </div>
-                  <div className="mb-3 flex items-center justify-center gap-1.5">
-                    <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-                    <span className="text-[0.6875rem] tracking-[0.12em] uppercase text-ink-faint">Available</span>
-                  </div>
-                  <p className="font-semibold tracking-tight text-ink">{expert.name}</p>
-                  <p className="mt-1 text-[0.875rem] font-light text-ink-muted">{expert.specialty}</p>
-                  <span
-                    className={`mt-4 inline-block rounded-full border border-hairline bg-raised px-3.5 py-1.5 text-[0.8125rem] font-medium ${
-                      expert.rate.includes('free') ? 'text-accent' : 'text-ink'
-                    }`}
-                  >
-                    {expert.rate}
-                  </span>
-                </div>
               </StaggerItem>
             ))}
           </Stagger>
@@ -170,7 +128,7 @@ export default function ConsultPage() {
         <div className="mx-auto w-full max-w-6xl">
           <Reveal>
             <EyebrowLabel>What it costs</EyebrowLabel>
-            <h2 className="type-h2 max-w-[22ch] text-balance">Free if you can wait. Cheap if you cannot.</h2>
+            <h2 className="type-h2 max-w-[22ch] text-balance">Free if you can wait. Paid if you cannot.</h2>
           </Reveal>
 
           <Stagger className="mx-auto mt-12 grid max-w-4xl gap-5 md:grid-cols-2">

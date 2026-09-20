@@ -40,7 +40,7 @@ const sections: LegalSection[] = [
   {
     heading: 'What we promise',
     paragraphs: [
-      'We will keep the platform running, keep your data private as described in our privacy policy, and tell you honestly when something breaks. Our target is 99.5% monthly uptime for the app and API, and we publish incidents on our status page rather than hiding them.',
+      'We will keep the platform running, keep your data private as described in our privacy policy, and tell you honestly when something breaks. We publish incidents rather than hiding them, and we will not quote an availability figure we are not yet measuring.',
     ],
   },
   {
