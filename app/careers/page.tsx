@@ -27,7 +27,8 @@ export default async function CareersPage() {
             </h1>
             <p className="mt-6 max-w-[52ch] text-[1.0625rem] font-light leading-[1.75] text-ink-muted">
               Small team, real users, satellites involved. There is one form, it takes a few minutes,
-              and nothing about it is screened by a keyword filter.
+              and nothing about it is screened by a keyword filter. Every role below is a one to two
+              month internship, based in Kolkata or remote.
             </p>
           </Reveal>
 
@@ -38,7 +39,9 @@ export default async function CareersPage() {
                   Open roles
                 </dt>
                 <dd className="mt-2 text-xl font-medium tracking-tight text-ink">{openings.length}</dd>
-                <dd className="mt-1 text-[0.875rem] font-light text-ink-muted">Across six teams.</dd>
+                <dd className="mt-1 text-[0.875rem] font-light text-ink-muted">
+                  Internships, one to two months.
+                </dd>
               </div>
               {band && (
                 <div>
@@ -86,7 +89,7 @@ export default async function CareersPage() {
                       </p>
                     )}
                     <p className="mt-2 text-[0.8125rem] text-ink-faint">
-                      {[o.team, o.location, o.commitment].filter(Boolean).join(' · ')}
+                      {[o.team, o.location, `${o.commitment}, ${o.duration}`].filter(Boolean).join(' · ')}
                     </p>
                   </div>
                   {stipend && (

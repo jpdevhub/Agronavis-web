@@ -91,7 +91,7 @@ const sections: LegalSection[] = [
   {
     heading: 'Governing law',
     paragraphs: [
-      'These terms are governed by the laws of India, and the courts of Bengaluru have exclusive jurisdiction over any dispute. We would obviously rather sort it out over a phone call.',
+      'These terms are governed by the laws of India, and the courts of Kolkata have exclusive jurisdiction over any dispute. We would obviously rather sort it out over a phone call.',
     ],
   },
 ];
