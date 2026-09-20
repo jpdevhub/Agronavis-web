@@ -3,7 +3,6 @@ import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 import { Reveal, Stagger, StaggerItem } from '@/components/ui/Reveal';
 import EyebrowLabel from '@/components/ui/EyebrowLabel';
-import StatBlock from '@/components/ui/StatBlock';
 import FeatureCard from '@/components/ui/FeatureCard';
 import Button from '@/components/ui/Button';
 import DemoForm from '@/components/forms/DemoForm';
@@ -11,19 +10,13 @@ import DemoForm from '@/components/forms/DemoForm';
 export const metadata: Metadata = {
   title: 'Enterprise: every hectare, accounted for',
   description:
-    'Verified crop telemetry across 100M+ hectares and 28 states, with full API access and a named account team. Built for institutional decisions.',
+    'Crop telemetry at regional scale, with API access and a named account team. Built for institutional decisions.',
 };
-
-const stats = [
-  { value: '100M+', label: 'Hectares monitored' },
-  { value: '28', label: 'States covered' },
-  { value: 'Tier 1', label: 'Satellite partners' },
-];
 
 const features = [
   {
     title: 'National-scale monitoring',
-    body: 'Every agricultural region ingested at once and reported in one place. No regional spreadsheet named FINAL_v7_revised.',
+    body: 'Every region you cover ingested on one schedule and reported in one place. No regional spreadsheet named FINAL_v7_revised.',
   },
   {
     title: 'Programmatic API access',
@@ -31,7 +24,7 @@ const features = [
   },
   {
     title: 'Verified institutional insight',
-    body: 'Every data point cross-validated across sensors before it lands in a policy memo, a subsidy model or a lending decision.',
+    body: 'Optical and radar readings are cross-checked against each other before anything lands in a policy memo, a subsidy model or a lending decision.',
   },
   {
     title: 'A named account team',
@@ -53,8 +46,8 @@ export default function ForEnterprisePage() {
           </Reveal>
           <Reveal delay={0.16}>
             <p className="mx-auto mt-7 max-w-[50ch] text-[1.0625rem] font-light leading-[1.75] text-white/65">
-              Verified crop telemetry for the people who have to answer for an entire region. Including the
-              hectares nobody has physically visited since 2019.
+              Crop telemetry for the people who have to answer for an entire region. Including the hectares
+              nobody has physically visited in years.
             </p>
             <div className="mt-10 flex justify-center">
               <Button href="#demo" variant="outline">
@@ -62,19 +55,6 @@ export default function ForEnterprisePage() {
               </Button>
             </div>
           </Reveal>
-        </div>
-      </section>
-
-      {/* STATS */}
-      <section className="border-t border-hairline px-6 py-20">
-        <div className="mx-auto w-full max-w-6xl">
-          <Stagger className="grid gap-12 text-center sm:grid-cols-3 sm:gap-8">
-            {stats.map((s) => (
-              <StaggerItem key={s.label}>
-                <StatBlock value={s.value} label={s.label} accent />
-              </StaggerItem>
-            ))}
-          </Stagger>
         </div>
       </section>
 

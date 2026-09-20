@@ -13,19 +13,17 @@ export const metadata: Metadata = {
 const values = [
   {
     title: 'Accuracy first',
-    body: 'Every number is cross-checked across sensors before it reaches your screen. Confidently wrong is still wrong, and it costs you a season.',
+    body: 'We would rather say we are not sure than guess. Confidently wrong is still wrong, and on a farm it costs a season.',
   },
   {
     title: 'Your language, not ours',
-    body: 'The consult network runs in 14 regional languages. Good advice should not require fluency in English, or in jargon invented at a conference.',
+    body: 'Advice should not require fluency in English, or in jargon invented at a conference. We answer in the language the question was asked in.',
   },
   {
     title: 'Free stays free',
     body: 'The Civilian plan is free forever. Not a trial, not a funnel, not a countdown. Baseline satellite intelligence should not be a luxury item.',
   },
 ];
-
-const backers = ['TERRA-V', 'ORBITAL', 'AGRI-TECH', 'SOLARIS', 'EQUITY'];
 
 export default function AboutPage() {
   return (
@@ -75,24 +73,6 @@ export default function AboutPage() {
               </StaggerItem>
             ))}
           </Stagger>
-        </div>
-      </section>
-
-      {/* BACKERS */}
-      <section className="border-y border-hairline bg-surface px-6 py-20">
-        <div className="mx-auto w-full max-w-6xl text-center">
-          <Reveal>
-            <p className="mb-10 text-[0.6875rem] font-semibold tracking-[0.2em] uppercase text-ink-faint">
-              Backed by people who believed us early
-            </p>
-            <div className="flex flex-wrap items-center justify-center gap-x-14 gap-y-6">
-              {backers.map((b) => (
-                <span key={b} className="text-[0.6875rem] font-semibold tracking-[0.22em] uppercase text-ink-faint">
-                  {b}
-                </span>
-              ))}
-            </div>
-          </Reveal>
         </div>
       </section>
 

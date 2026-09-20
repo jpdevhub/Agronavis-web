@@ -4,14 +4,13 @@ import Link from 'next/link';
 import { Satellite, Droplets, Sprout, ArrowRight } from 'lucide-react';
 import { Reveal, Stagger, StaggerItem } from '@/components/ui/Reveal';
 import EyebrowLabel from '@/components/ui/EyebrowLabel';
-import StatBlock from '@/components/ui/StatBlock';
 import FeatureCard from '@/components/ui/FeatureCard';
 import Button from '@/components/ui/Button';
 
 export const metadata: Metadata = {
   title: 'Agronavis: satellite intel for people who actually farm',
   description:
-    'Your field has been talking. We turned on subtitles. Satellite crop monitoring in plain language. 30% less water wasted, 10k+ farms, free to start.',
+    'Your field has been talking. We turned on subtitles. Satellite crop monitoring explained in plain language, free to start.',
 };
 
 const capabilities = [
@@ -30,12 +29,6 @@ const capabilities = [
     title: 'Irrigation that makes sense',
     body: 'We tell you which zone needs water, how much, and when. No more soaking forty acres because one sad patch near the road caught your eye.',
   },
-];
-
-const stats = [
-  { value: '30%', label: 'Less water wasted' },
-  { value: '10k+', label: 'Farms on the map' },
-  { value: '98%', label: 'Prediction accuracy' },
 ];
 
 export default function LandingPage() {
@@ -77,24 +70,6 @@ export default function LandingPage() {
               </Button>
             </div>
             <p className="mt-6 text-[0.8125rem] text-white/45">No card. No demo call. No one named Chad emailing you.</p>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* STATS */}
-      <section className="border-t border-hairline px-6 py-20">
-        <div className="mx-auto w-full max-w-6xl">
-          <Stagger className="grid gap-12 text-center sm:grid-cols-3 sm:gap-8">
-            {stats.map((s) => (
-              <StaggerItem key={s.label}>
-                <StatBlock value={s.value} label={s.label} />
-              </StaggerItem>
-            ))}
-          </Stagger>
-          <Reveal delay={0.15}>
-            <p className="mt-12 text-center text-sm font-light text-ink-faint">
-              Real numbers from real fields. We check them twice because our lawyer asked nicely.
-            </p>
           </Reveal>
         </div>
       </section>

@@ -8,7 +8,7 @@ import Button from '@/components/ui/Button';
 export const metadata: Metadata = {
   title: 'For farmers: know your field before you put your boots on',
   description:
-    'Satellite crop monitoring for small farms, delivered as plain messages in your own language. Free for up to five acres.',
+    'Satellite crop monitoring for small farms, delivered as plain messages in your own language. Free to start.',
 };
 
 const painPoints = [
