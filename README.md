@@ -76,6 +76,8 @@ npm run dev                  # http://localhost:8080
 | Script | Purpose |
 | --- | --- |
 | `npm run dev` | Development server |
+| `npm run fresh` | Clears the build cache, then starts the development server |
+| `npm run clean` | Removes `.next` and any AppleDouble sidecar files |
 | `npm run build` | Production build; every route prerenders |
 | `npm start` | Serve the production build |
 | `npm run lint` | ESLint, `next/core-web-vitals` plus TypeScript |
@@ -193,6 +195,9 @@ push to `main`. Production deploys follow `main`; every other branch receives a 
 This project was built on an exFAT volume, where macOS writes AppleDouble `._*` sidecar files
 next to every file. Next.js reads them as real files: the image optimizer serves sidecar bytes
 instead of images, and the Turbopack filesystem cache fails to open its database.
+
+Run `npm run fresh` instead of `npm run dev` when the cache misbehaves. It removes `.next` and
+the sidecar files together, which is usually what a stale or corrupt Turbopack cache needs.
 
 `next.config.ts` detects the build host and applies the workaround only outside CI:
 
