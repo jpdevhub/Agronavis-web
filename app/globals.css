@@ -14,6 +14,7 @@
   --color-ink-faint: rgba(255, 255, 255, 0.3);
 
   /* Accent */
+  --color-error: #f2b8b5;
   --color-accent: #74d684;
   --color-accent-hover: #8fe09c;
   --color-accent-soft: rgba(116, 214, 132, 0.1);
@@ -23,12 +24,17 @@
 
   --font-sans: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
 
+  /* Material Design 3 shape scale */
+  --radius-xs: 4px;
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 16px;
   --radius-xl: 24px;
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  /* Material Design 3 motion: emphasised and standard easing */
+  --ease-emphasized: cubic-bezier(0.2, 0, 0, 1);
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
 
   --spacing-nav: 68px;
 }
@@ -89,4 +95,78 @@
   font-weight: 700;
   line-height: 1;
   letter-spacing: -0.045em;
+}
+
+/* ── Material Design 3 ────────────────────────────────────────────────────────
+   State layers, filled text fields and elevation, expressed in the Agronavis
+   palette so MD3 structure and the site's own surfaces stay one system. */
+
+@layer components {
+  .md-state {
+    position: relative;
+    isolation: isolate;
+  }
+  .md-state::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: currentColor;
+    opacity: 0;
+    transition: opacity 120ms var(--ease-standard);
+    pointer-events: none;
+  }
+  .md-state:hover::after { opacity: 0.08; }
+  .md-state:focus-visible::after { opacity: 0.1; }
+  .md-state:active::after { opacity: 0.1; }
+
+  /* Filled text field: 4px top corners, a resting underline that thickens and
+     takes the accent on focus, and a label that rises into the top padding. */
+  .md-field {
+    position: relative;
+    display: block;
+    background: color-mix(in oklab, var(--color-ink) 5%, transparent);
+    border-radius: var(--radius-xs) var(--radius-xs) 0 0;
+    border-bottom: 1px solid color-mix(in oklab, var(--color-ink) 42%, transparent);
+    transition: background 120ms var(--ease-standard), border-color 120ms var(--ease-standard);
+  }
+  .md-field:hover { background: color-mix(in oklab, var(--color-ink) 8%, transparent); }
+  .md-field:focus-within { border-bottom-color: var(--color-accent); box-shadow: 0 1px 0 0 var(--color-accent); }
+  .md-field[data-invalid='true'] { border-bottom-color: var(--color-error); }
+  .md-field[data-invalid='true']:focus-within { box-shadow: 0 1px 0 0 var(--color-error); }
+
+  .md-input {
+    width: 100%;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    color: var(--color-ink);
+    font-size: 1rem;
+    line-height: 1.5rem;
+    padding: 1.5rem 1rem 0.5rem;
+  }
+  .md-input::placeholder { color: transparent; }
+  .md-input:focus::placeholder { color: var(--color-ink-faint); }
+  textarea.md-input { resize: vertical; min-height: 7.5rem; }
+
+  .md-label {
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: var(--color-ink-muted);
+    pointer-events: none;
+    transform-origin: left top;
+    transition: transform 120ms var(--ease-standard), color 120ms var(--ease-standard);
+  }
+  .md-input:focus ~ .md-label,
+  .md-input:not(:placeholder-shown) ~ .md-label {
+    transform: translateY(-0.6rem) scale(0.75);
+  }
+  .md-input:focus ~ .md-label { color: var(--color-accent); }
+  .md-field[data-invalid='true'] .md-label { color: var(--color-error); }
+
+  .md-elevation-1 { box-shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 1px 3px 1px rgb(0 0 0 / 0.15); }
+  .md-elevation-2 { box-shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 2px 6px 2px rgb(0 0 0 / 0.15); }
 }
