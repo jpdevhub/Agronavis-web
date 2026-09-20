@@ -107,7 +107,7 @@ export default function TermsPage() {
       sections={sections}
       contact={{
         line: 'Contract questions, enterprise redlines, or a clause you want explained in normal words.',
-        email: 'legal@agronavis.com',
+        email: 'contact@agronavis.in',
       }}
     />
   );

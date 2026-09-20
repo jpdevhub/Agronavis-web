@@ -191,8 +191,8 @@ export default function StatusPage() {
           <Reveal delay={0.1}>
             <p className="mt-10 text-[0.9375rem] font-light text-ink-muted">
               Want an email when something breaks? Write to{' '}
-              <a href="mailto:status@agronavis.com" className="text-accent hover:opacity-80">
-                status@agronavis.com
+              <a href="mailto:contact@agronavis.in" className="text-accent hover:opacity-80">
+                contact@agronavis.in
               </a>{' '}
               and we will add you to the incident list.
             </p>

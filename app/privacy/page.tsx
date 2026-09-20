@@ -100,7 +100,7 @@ export default function PrivacyPage() {
       sections={sections}
       contact={{
         line: 'Ask us anything about your data, including the awkward questions. A human replies, usually within two working days.',
-        email: 'privacy@agronavis.com',
+        email: 'contact@agronavis.in',
       }}
     />
   );

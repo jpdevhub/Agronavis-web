@@ -69,7 +69,7 @@
   }
 }
 
-/* Fluid type steps — the only three headline sizes in the system */
+/* Fluid type steps: the only three headline sizes in the system */
 @utility type-display {
   font-size: clamp(2.5rem, 5.4vw, 4.25rem);
   font-weight: 700;
