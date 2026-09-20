@@ -7,21 +7,14 @@ import { TextField, TextArea } from '@/components/md3/Field';
 import FileField from '@/components/md3/FileField';
 import { Button, Chip } from '@/components/md3/Button';
 
-export const ROLES = [
-  'Frontend Engineering',
-  'Backend Engineering',
-  'Geospatial / Remote Sensing',
-  'Machine Learning',
-  'Design',
-  'Field Operations',
-  'Something else',
-] as const;
+const OTHER = 'Something else';
 
-export default function CareersForm() {
+export default function CareersForm({ roles }: { roles: string[] }) {
+  const options = [...roles, OTHER];
   const { status, error, fieldErrors, handleSubmit, reset } = useFormSubmit('careers', {
     multipart: true,
   });
-  const [role, setRole] = useState<string>(ROLES[0]);
+  const [role, setRole] = useState<string>(options[0] ?? OTHER);
 
   if (status === 'sent') {
     return (
@@ -52,11 +45,21 @@ export default function CareersForm() {
           Which area
         </legend>
         <div role="radiogroup" aria-label="Role" className="flex flex-wrap gap-2">
-          {ROLES.map((r) => (
+          {options.map((r) => (
             <Chip key={r} label={r} selected={role === r} onSelect={() => setRole(r)} />
           ))}
         </div>
         <input type="hidden" name="role" value={role} />
+        {role === OTHER && (
+          <div className="mt-4">
+            <TextField
+              name="role_other"
+              label="Which role"
+              required
+              error={fieldErrors.role_other}
+            />
+          </div>
+        )}
         {fieldErrors.role && <p className="pt-1.5 text-xs text-error">{fieldErrors.role}</p>}
       </fieldset>
 
