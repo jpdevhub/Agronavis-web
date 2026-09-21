@@ -3,8 +3,8 @@
 import { useRef, useState } from 'react';
 import { FileText, Paperclip, X } from 'lucide-react';
 
-const MAX_BYTES = 5 * 1024 * 1024;
-const ACCEPT = '.pdf,.doc,.docx';
+const MAX_BYTES = 12 * 1024 * 1024;
+const ACCEPT = '.pdf,.doc,.docx,.jpg,.jpeg,.png,.webp,.heic';
 
 const readable = (bytes: number) =>
   bytes < 1024 * 1024 ? `${Math.round(bytes / 1024)} KB` : `${(bytes / 1024 / 1024).toFixed(1)} MB`;
@@ -28,7 +28,7 @@ export default function FileField({
   function accept(selected: File | undefined) {
     if (!selected) return;
     if (selected.size > MAX_BYTES) {
-      setLocal(`That file is ${readable(selected.size)}. The limit is 5 MB.`);
+      setLocal(`That file is ${readable(selected.size)}. The limit is 12 MB.`);
       setFile(null);
       if (input.current) input.current.value = '';
       return;
@@ -107,7 +107,9 @@ export default function FileField({
             <Paperclip size={18} className="shrink-0 text-ink-muted" />
             <span className="flex-1">
               <span className="block text-sm font-medium text-ink">{label}</span>
-              <span className="block text-xs text-ink-faint">PDF or Word, up to 5 MB</span>
+              <span className="block text-xs text-ink-faint">
+              PDF, Word, or a photo of it. Up to 12 MB, compressed after upload.
+            </span>
             </span>
           </button>
         )}
