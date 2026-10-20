@@ -1,7 +1,7 @@
 /** Public by design: the URL carries no credential. */
 const API_URL = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:8080';
 
-export type FormEndpoint = 'contact' | 'demo' | 'careers' | 'newsletter';
+export type FormEndpoint = 'contact' | 'demo' | 'careers' | 'newsletter' | 'account-deletion';
 
 export type SubmitResult =
   | { ok: true }

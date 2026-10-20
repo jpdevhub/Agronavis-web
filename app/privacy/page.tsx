@@ -20,15 +20,41 @@ const sections: LegalSection[] = [
       'Three kinds of information, and nothing beyond what the product needs to work.',
     ],
     bullets: [
-      'Account details: your name, phone number or email, preferred language, and password (stored hashed, never in readable form).',
-      'Field data: the boundaries you draw, crop types you tell us about, and the satellite-derived measurements we generate for those areas.',
+      'Account details: your name, email, an optional phone number and photograph, your village, district and state, your preferred language, and how you farm: irrigation type, soil type and the crops you grow.',
+      'Field data: the boundaries you draw and their calculated area, the crops you plant and when, tasks you complete, photographs you scan, posts you write, and the satellite-derived measurements we generate for those areas.',
       'Usage data: which screens you open and which alerts you act on, so we know what is working. This is aggregated and never sold.',
     ],
   },
   {
     heading: 'What we do not collect',
     paragraphs: [
-      'We do not track your location in the background. We do not read your contacts, your photos, or your messages. We do not buy data about you from brokers to fill in gaps, and we do not fingerprint your device across other websites.',
+      'We do not collect your contacts, call logs, SMS, installed applications, browsing history or advertising identifiers. We do not track your location in the background. We do not browse your photo library: the app only ever receives an individual picture you choose to send. We do not buy data about you from brokers, and we do not fingerprint your device across other websites.',
+    ],
+  },
+  {
+    heading: 'Permissions the app asks for',
+    paragraphs: [
+      'The app asks before using any of these. Each is used only while you are in the part of the app that needs it, and none of them runs in the background. Refusing one leaves the rest of the app working, and you can change your mind at any time in your device settings.',
+    ],
+    bullets: [
+      'Camera: to photograph a leaf for a disease reading. That photograph is sent to our server to be identified, and kept against your account so you can look back at it.',
+      'Photos: only the picture you pick yourself, when you choose one from your gallery instead of taking it. We do not read the rest of your library.',
+      'Microphone: only while you hold the microphone button to speak to Sahayak. Your speech is turned into text on your own phone, and the recording is not kept and never reaches us.',
+      'Location: read when you tap the locate button while mapping a field, and to work out which district the field sits in. Never read in the background.',
+      'Notifications: to deliver alerts you have switched on, such as smoke from stubble fires upwind of your field.',
+    ],
+  },
+  {
+    heading: 'Your conversations stay on your phone',
+    paragraphs: [
+      'Sahayak runs a language model on your device. What you ask it, and what it answers, is processed on the handset and never sent to us or to anyone else. The farm details it reads in order to answer usefully are held in a copy on the phone.',
+      'Speech recognition and speech output use your own device services, governed by your phone settings rather than by us.',
+    ],
+  },
+  {
+    heading: 'Field boundaries',
+    paragraphs: [
+      'A field boundary is the precise location of someone\'s livelihood. We treat it as the most sensitive thing we hold. It is never shared with advertisers and never sold.',
     ],
   },
   {
@@ -59,7 +85,8 @@ const sections: LegalSection[] = [
   {
     heading: 'Your rights',
     paragraphs: [
-      'You can ask us to show you everything we hold about you, correct anything wrong, export your field data in a standard format, or delete the lot. Most of this is a button in the app. For anything the app does not cover, email us and we will do it within 30 days.',
+      'You can ask us to show you everything we hold about you, correct anything wrong, export your field data in a standard format, or delete the lot. Most of this is a button in the app, under Settings and then Account.',
+      'You can also request deletion without opening the app, including after uninstalling it, at agronavis.in/delete-account. No login is required. We action it within 30 days and write to confirm when it is done.',
       'You can also withdraw consent for marketing messages at any time without losing access to the product.',
     ],
   },

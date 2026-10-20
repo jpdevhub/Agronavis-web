@@ -16,6 +16,7 @@ const footerLinks = {
   ],
   Legal: [
     { label: 'Privacy', href: '/privacy' },
+    { label: 'Delete account', href: '/delete-account' },
     { label: 'Terms', href: '/terms' },
     { label: 'Satellite status', href: '/status' },
   ],
@@ -25,6 +26,7 @@ const bottomLinks = [
   { label: 'Careers', href: '/careers' },
   { label: 'Privacy', href: '/privacy' },
   { label: 'Terms', href: '/terms' },
+  { label: 'Delete account', href: '/delete-account' },
   { label: 'Satellite status', href: '/status' },
 ];
 
