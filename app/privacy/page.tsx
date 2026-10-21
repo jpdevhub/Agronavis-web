@@ -85,7 +85,7 @@ const sections: LegalSection[] = [
   {
     heading: 'Your rights',
     paragraphs: [
-      'You can ask us to show you everything we hold about you, correct anything wrong, export your field data in a standard format, or delete the lot. Most of this is a button in the app, under Settings and then Account.',
+      'You can ask us to show you everything we hold about you, correct anything wrong, export your field data in a standard format, or delete the lot. To delete, open Profile in the app and choose Delete My Account, directly below Log Out.',
       'You can also request deletion without opening the app, including after uninstalling it, at agronavis.in/delete-account. No login is required. We action it within 30 days and write to confirm when it is done.',
       'You can also withdraw consent for marketing messages at any time without losing access to the product.',
     ],

@@ -44,9 +44,9 @@ export default function DeleteAccountPage() {
           </Reveal>
           <Reveal delay={0.12}>
             <p className="mt-6 max-w-[54ch] text-[1.0625rem] font-light leading-[1.75] text-ink-muted">
-              You can do this from inside the app under Profile, then Security, where it happens
-              immediately. Use the form below if you have already uninstalled the app, cannot sign
-              in, or would simply rather we did it.
+              You can do this inside the app: open Profile and choose Delete My Account, directly
+              below Log Out. It happens immediately. Use the form below if you have already
+              uninstalled the app, cannot sign in, or would simply rather we did it.
             </p>
           </Reveal>
         </div>
