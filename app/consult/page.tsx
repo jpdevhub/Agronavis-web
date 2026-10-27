@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { MessageSquare, Zap, Video } from 'lucide-react';
 import { Reveal, Stagger, StaggerItem } from '@/components/ui/Reveal';
 import EyebrowLabel from '@/components/ui/EyebrowLabel';
+import { Parallax } from '@/components/ui/Motion';
 import ContactForm from '@/components/forms/ContactForm';
 import Button from '@/components/ui/Button';
 
@@ -38,7 +39,11 @@ export default function ConsultPage() {
     <>
       {/* HERO */}
       <section className="relative flex min-h-screen items-end overflow-hidden px-6 pt-[calc(var(--spacing-nav)+4rem)] pb-28">
-        <Image src="/images/hero-expert.jpg" alt="" fill priority sizes="100vw" className="object-cover" />
+        <Parallax className="absolute inset-0" distance={50}>
+          <div className="relative h-[115%] w-full">
+            <Image src="/images/hero-expert.jpg" alt="" fill priority sizes="100vw" className="object-cover" />
+          </div>
+        </Parallax>
         <div className="absolute inset-0 bg-canvas/66" />
 
         <div className="relative mx-auto w-full max-w-[1400px]">
@@ -57,8 +62,8 @@ export default function ConsultPage() {
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
               <Button href="#ask">Ask a question</Button>
-              <Button href="/blog#waitlist" variant="outline">
-                Tell me when it opens
+              <Button href="/features" variant="outline">
+                See the platform
               </Button>
             </div>
           </Reveal>

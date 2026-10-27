@@ -6,6 +6,8 @@ import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Menu } from 'lucide-react';
+import PlayBadge from '@/components/ui/PlayBadge';
+import { ScrollProgress } from '@/components/ui/Motion';
 
 const navLinks = [
   { label: 'Platform', href: '/features' },
@@ -36,6 +38,7 @@ export default function Navbar() {
 
   return (
     <>
+      <ScrollProgress />
       <header
         className={`fixed inset-x-0 top-0 z-50 h-nav border-b px-6 transition-colors duration-300 ${
           scrolled || menuOpen ? 'border-hairline bg-canvas/85 backdrop-blur-xl' : 'border-transparent bg-transparent'
@@ -72,12 +75,7 @@ export default function Navbar() {
           </nav>
 
           <div className="flex items-center gap-3">
-            <Link
-              href="/pricing"
-              className="hidden rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-on-accent transition-colors hover:bg-accent-hover sm:inline-flex"
-            >
-              Join the waitlist
-            </Link>
+            <PlayBadge source="navbar" size="small" className="hidden sm:inline-flex" />
             <button
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label={menuOpen ? 'Close menu' : 'Open menu'}
@@ -119,13 +117,9 @@ export default function Navbar() {
                 </motion.div>
               ))}
             </nav>
-            <Link
-              href="/blog#waitlist"
-              onClick={() => setMenuOpen(false)}
-              className="mt-8 w-full rounded-full bg-accent py-4 text-center font-semibold text-on-accent"
-            >
-              Join the waitlist
-            </Link>
+            <div className="mt-8" onClick={() => setMenuOpen(false)}>
+              <PlayBadge source="mobile_menu" className="w-full justify-center" />
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

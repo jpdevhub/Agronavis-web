@@ -3,7 +3,9 @@ import Image from 'next/image';
 import { Leaf, TriangleAlert, MonitorOff, MessageSquare } from 'lucide-react';
 import { Reveal, Stagger, StaggerItem } from '@/components/ui/Reveal';
 import EyebrowLabel from '@/components/ui/EyebrowLabel';
+import { Parallax, Lift } from '@/components/ui/Motion';
 import Button from '@/components/ui/Button';
+import PlayBadge from '@/components/ui/PlayBadge';
 
 export const metadata: Metadata = {
   title: 'For farmers: know your field before you put your boots on',
@@ -41,14 +43,18 @@ export default function ForFarmersPage() {
     <>
       {/* HERO */}
       <section className="relative flex min-h-screen items-center overflow-hidden px-6 pt-[calc(var(--spacing-nav)+4rem)] pb-24">
-        <Image
-          src="/images/hero-farmer.jpg"
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-[center_30%]"
-        />
+        <Parallax className="absolute inset-0" distance={50}>
+          <div className="relative h-[115%] w-full">
+          <Image
+            src="/images/hero-farmer.jpg"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-[center_30%]"
+          />
+          </div>
+        </Parallax>
         <div className="absolute inset-0 bg-canvas/64" />
 
         <div className="relative mx-auto w-full max-w-[1400px]">
@@ -61,7 +67,7 @@ export default function ForFarmersPage() {
               nothing extra to charge, no training required.
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
-              <Button href="/blog#waitlist">Join the waitlist</Button>
+              <PlayBadge source="farmers" />
               <Button href="/features" variant="outline">
                 See how it works
               </Button>
@@ -84,12 +90,12 @@ export default function ForFarmersPage() {
           <Stagger className="mt-12 grid gap-5 sm:grid-cols-2">
             {painPoints.map((point) => (
               <StaggerItem key={point.text} className="h-full">
-                <div className="flex h-full flex-col gap-4 rounded-lg border border-hairline bg-surface p-7 transition-colors hover:border-hairline-strong">
+                <Lift className="flex h-full flex-col gap-4 rounded-lg border border-hairline bg-surface p-7 transition-colors hover:border-hairline-strong">
                   <div className="flex h-10 w-10 items-center justify-center rounded-sm border border-accent-line bg-accent-soft text-accent">
                     {point.icon}
                   </div>
                   <p className="text-[1.0625rem] font-medium leading-snug text-ink">{point.text}</p>
-                </div>
+                </Lift>
               </StaggerItem>
             ))}
           </Stagger>

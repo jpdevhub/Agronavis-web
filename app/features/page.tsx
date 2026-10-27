@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import { ArrowRight } from 'lucide-react';
 import { Reveal } from '@/components/ui/Reveal';
 import EyebrowLabel from '@/components/ui/EyebrowLabel';
-import Button from '@/components/ui/Button';
+import { Parallax } from '@/components/ui/Motion';
+import PlayBadge from '@/components/ui/PlayBadge';
 
 export const metadata: Metadata = {
   title: 'Platform: every feature has one job',
@@ -23,14 +23,18 @@ export default function FeaturesPage() {
     <>
       {/* HERO */}
       <section className="relative flex min-h-screen items-end overflow-hidden px-6 pt-[calc(var(--spacing-nav)+4rem)] pb-28">
-        <Image
-          src="/images/hero-orbital.jpg"
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-[center_30%]"
-        />
+        <Parallax className="absolute inset-0" distance={50}>
+          <div className="relative h-[115%] w-full">
+          <Image
+            src="/images/hero-orbital.jpg"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-[center_30%]"
+          />
+          </div>
+        </Parallax>
         <div className="absolute inset-0 bg-canvas/62" />
 
         <div className="relative mx-auto w-full max-w-[1400px]">
@@ -133,9 +137,7 @@ export default function FeaturesPage() {
           <Reveal>
             <h2 className="type-display mx-auto max-w-[14ch] text-balance">See it on your own field.</h2>
             <div className="mt-10 flex justify-center">
-              <Button href="/blog#waitlist">
-                Join the waitlist <ArrowRight size={16} />
-              </Button>
+<PlayBadge source="features" />
             </div>
           </Reveal>
         </div>

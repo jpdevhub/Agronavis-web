@@ -4,6 +4,7 @@ import { Reveal, Stagger, StaggerItem } from '@/components/ui/Reveal';
 import EyebrowLabel from '@/components/ui/EyebrowLabel';
 import FaqAccordion from '@/components/ui/FaqAccordion';
 import Button from '@/components/ui/Button';
+import PlayBadge from '@/components/ui/PlayBadge';
 
 export const metadata: Metadata = {
   title: 'Pricing without asterisks',
@@ -18,7 +19,7 @@ const tiers = [
     suffix: 'forever',
     desc: 'For anyone with a field and a phone.',
     features: ['Up to 5 acres', 'Weekly satellite scans', 'WhatsApp alerts', 'Free student expert access'],
-    cta: 'Join the waitlist',
+    cta: 'Download free',
     href: '/for-farmers',
     variant: 'outline' as const,
     featured: false,
@@ -35,7 +36,7 @@ const tiers = [
       'Priority expert booking',
       'End-of-season report',
     ],
-    cta: 'Join the waitlist',
+    cta: 'Get Grower',
     href: '/consult',
     variant: 'primary' as const,
     featured: true,
@@ -65,7 +66,7 @@ const comparison: { feature: string; civilian: string | boolean; grower: string 
 const faqs = [
   {
     q: 'Is the free plan actually free?',
-    a: 'Yes, and forever. No card, no countdown timer quietly running in the background. Nothing is charged today because nothing is open for signup yet.',
+    a: 'Yes, and forever. No card, no countdown timer quietly running in the background. Download it from Google Play and map a field without paying anything.',
   },
   {
     q: 'Can I upgrade later?',
@@ -108,7 +109,7 @@ export default function PricingPage() {
           <Reveal delay={0.14}>
             <p className="mx-auto mt-6 max-w-[46ch] text-[1.0625rem] font-light leading-[1.75] text-ink-muted">
               Read the whole thing in twenty seconds. There is no page two and nothing in grey
-              six-point type. Nothing is charged yet either: these are the plans for launch.
+              six-point type. The free plan is live on Google Play today.
             </p>
           </Reveal>
         </div>
@@ -220,10 +221,10 @@ export default function PricingPage() {
           <Reveal>
             <h2 className="type-h2 mx-auto max-w-[20ch] text-balance">The free one will always be free.</h2>
             <p className="mx-auto mt-5 max-w-[44ch] text-base font-light text-ink-muted">
-              Join the waitlist and we will tell you the day plans open.
+              Download it, map a field, and decide afterwards whether you need more.
             </p>
             <div className="mt-9 flex justify-center">
-              <Button href="/for-farmers">Join the waitlist</Button>
+              <PlayBadge source="pricing" />
             </div>
           </Reveal>
         </div>

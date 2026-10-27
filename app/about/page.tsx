@@ -2,7 +2,8 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import { Reveal, Stagger, StaggerItem } from '@/components/ui/Reveal';
 import EyebrowLabel from '@/components/ui/EyebrowLabel';
-import Button from '@/components/ui/Button';
+import { Parallax } from '@/components/ui/Motion';
+import PlayBadge from '@/components/ui/PlayBadge';
 
 export const metadata: Metadata = {
   title: 'About',
@@ -30,7 +31,11 @@ export default function AboutPage() {
     <>
       {/* HERO */}
       <section className="relative flex min-h-screen items-center overflow-hidden px-6 pt-[calc(var(--spacing-nav)+4rem)] pb-24">
-        <Image src="/images/hero-about.jpg" alt="" fill priority sizes="100vw" className="object-cover" />
+        <Parallax className="absolute inset-0" distance={50}>
+          <div className="relative h-[115%] w-full">
+            <Image src="/images/hero-about.jpg" alt="" fill priority sizes="100vw" className="object-cover" />
+          </div>
+        </Parallax>
         <div className="absolute inset-0 bg-canvas/66" />
 
         <div className="relative mx-auto w-full max-w-[1400px]">
@@ -85,7 +90,7 @@ export default function AboutPage() {
               Five acres, free, today. Bring the other farm later.
             </p>
             <div className="mt-9 flex justify-center">
-              <Button href="/blog#waitlist">Join the waitlist</Button>
+              <PlayBadge source="about" />
             </div>
           </Reveal>
         </div>

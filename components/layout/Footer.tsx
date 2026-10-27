@@ -1,5 +1,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import PlayBadge from '@/components/ui/PlayBadge';
+import { InstagramIcon, YoutubeIcon } from '@/components/ui/SocialIcons';
+import { LINKS } from '@/lib/links';
 
 const footerLinks = {
   Product: [
@@ -43,6 +46,26 @@ export default function Footer() {
             <p className="max-w-[28ch] text-sm font-light leading-relaxed text-ink-muted">
               We watch your field from space so you can go do literally anything else.
             </p>
+            <div className="mt-6">
+              <PlayBadge source="footer" size="small" />
+            </div>
+            <div className="mt-5 flex items-center gap-2">
+              {[
+                { href: LINKS.instagram, label: 'Agronavis on Instagram', Icon: InstagramIcon },
+                { href: LINKS.youtube, label: 'Agronavis on YouTube', Icon: YoutubeIcon },
+              ].map(({ href, label, Icon }) => (
+                <a
+                  key={href}
+                  href={href}
+                  target="_blank"
+                  rel="noopener"
+                  aria-label={label}
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-hairline text-ink-muted transition-colors hover:border-accent-line hover:text-accent"
+                >
+                  <Icon size={17} />
+                </a>
+              ))}
+            </div>
           </div>
 
           {Object.entries(footerLinks).map(([group, links]) => (

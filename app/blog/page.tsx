@@ -64,15 +64,15 @@ export default function BlogPage() {
         </div>
       </section>
 
-      <section id="waitlist" className="scroll-mt-nav border-t border-hairline bg-surface px-6 py-20">
+      <section id="subscribe" className="scroll-mt-nav border-t border-hairline bg-surface px-6 py-20">
         <div className="mx-auto w-full max-w-3xl text-center">
           <Reveal>
             <h2 className="text-2xl font-semibold tracking-tight text-ink">
-              Be there when it opens
+              Get the first one
             </h2>
             <p className="mx-auto mt-3 max-w-[48ch] text-[0.9375rem] font-light text-ink-muted">
-              Agronavis is not open to the public yet. Leave your address and we will write once when
-              it is, plus Field Notes when there is something worth reading.
+              The app is out, and the writing starts once a real season has produced a real result.
+              Leave your address and you will get the first one.
             </p>
             <NewsletterForm />
           </Reveal>

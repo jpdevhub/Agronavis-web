@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 import { Reveal, Stagger, StaggerItem } from '@/components/ui/Reveal';
 import EyebrowLabel from '@/components/ui/EyebrowLabel';
+import { Parallax } from '@/components/ui/Motion';
 import FeatureCard from '@/components/ui/FeatureCard';
 import Button from '@/components/ui/Button';
 import DemoForm from '@/components/forms/DemoForm';
@@ -37,7 +38,11 @@ export default function ForEnterprisePage() {
     <>
       {/* HERO */}
       <section className="relative flex min-h-screen items-center justify-center overflow-hidden px-6 pt-[calc(var(--spacing-nav)+4rem)] pb-24 text-center">
-        <Image src="/images/hero-orbital.jpg" alt="" fill priority sizes="100vw" className="object-cover" />
+        <Parallax className="absolute inset-0" distance={50}>
+          <div className="relative h-[115%] w-full">
+            <Image src="/images/hero-orbital.jpg" alt="" fill priority sizes="100vw" className="object-cover" />
+          </div>
+        </Parallax>
         <div className="absolute inset-0 bg-canvas/64" />
 
         <div className="relative mx-auto w-full max-w-4xl">
