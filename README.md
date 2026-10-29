@@ -45,6 +45,7 @@ Forms need the API running alongside it, from the backend repository.
 | `npm run fresh` | Clear the build cache first, for when something is stale |
 | `npm run build` | Production build |
 | `npm run lint` | Check the code |
+| `npm test` | Run automated test suite (certificate system) |
 
 ## Notes
 
@@ -53,4 +54,5 @@ takes a CV as a PDF, a Word document or a photo, compressed before storage.
 
 ## More
 
-`docs/development.md` for design tokens and local environment notes.
+- `docs/development.md` for design tokens and local environment notes.
+- `docs/certificates.md` for certificate issuance, public verification, and administrative dashboard architecture.

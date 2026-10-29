@@ -34,6 +34,9 @@ yarn-error.log*
 .env*
 !.env.example
 
+# certificate data (PDFs and database)
+/data/
+
 # vercel
 .vercel
 

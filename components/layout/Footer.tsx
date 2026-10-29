@@ -22,6 +22,7 @@ const footerLinks = {
     { label: 'Delete account', href: '/delete-account' },
     { label: 'Terms', href: '/terms' },
     { label: 'Satellite status', href: '/status' },
+    { label: 'Verify Certificate', href: '/verify-certificate' },
   ],
 };
 
