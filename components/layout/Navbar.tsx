@@ -75,7 +75,11 @@ export default function Navbar() {
           </nav>
 
           <div className="flex items-center gap-3">
-            <PlayBadge source="navbar" size="small" className="hidden sm:inline-flex" />
+            {/* Wrapped rather than class-toggled: the badge sets its own
+                display, so a `hidden` on it would not reliably win. */}
+            <span className="hidden sm:block">
+              <PlayBadge source="navbar" size="small" />
+            </span>
             <button
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label={menuOpen ? 'Close menu' : 'Open menu'}

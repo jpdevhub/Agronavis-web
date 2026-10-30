@@ -29,13 +29,13 @@ export default function PlayBadge({
       target="_blank"
       rel="noopener"
       aria-label="Get Agronavis on Google Play"
-      className={`group inline-flex items-center gap-3 rounded-full bg-ink text-canvas transition-transform duration-200 ease-[var(--ease-emphasized)] hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${
+      className={`group inline-flex shrink-0 items-center gap-3 whitespace-nowrap rounded-full border border-white/25 bg-raised text-ink transition-all duration-200 ease-[var(--ease-emphasized)] hover:-translate-y-0.5 hover:border-white/45 hover:bg-white/[0.08] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${
         small ? 'px-4 py-2.5' : 'px-6 py-3.5'
       } ${className}`}
     >
       <PlayGlyph size={small ? 18 : 22} />
       <span className="text-left leading-none">
-        <span className={`block ${small ? 'text-[0.5rem]' : 'text-[0.5625rem]'} font-medium tracking-[0.14em] uppercase opacity-70`}>
+        <span className={`block ${small ? 'text-[0.5rem]' : 'text-[0.5625rem]'} font-medium tracking-[0.14em] uppercase text-ink-muted`}>
           Get it on
         </span>
         <span className={`mt-0.5 block font-semibold tracking-tight ${small ? 'text-sm' : 'text-base'}`}>
