@@ -34,8 +34,7 @@ yarn-error.log*
 .env*
 !.env.example
 
-# certificate data (PDFs and database)
-/data/
+# issued certificate PDFs are served statically; the register itself is tracked
 
 # vercel
 .vercel
