@@ -21,11 +21,12 @@ const arg = (f: string) => {
 
 const name = arg('name');
 const role = arg('role');
+const kind = arg('kind') ?? 'Internship';
 const from = arg('from');
 const to = arg('to');
 
 if (!name || !role || !from || !to) {
-  console.error('Usage: npm run cert:new -- --name "Full Name" --role "Role" --from YYYY-MM-DD --to YYYY-MM-DD');
+  console.error('Usage: npm run cert:new -- --name "Full Name" --role "Role" [--kind Appreciation] --from YYYY-MM-DD --to YYYY-MM-DD');
   process.exit(1);
 }
 
@@ -43,6 +44,7 @@ if (!id) throw new Error('could not mint an unused identifier');
 const record = `  {
     id: '${id}',
     name: ${JSON.stringify(name)},
+    kind: ${JSON.stringify(kind)},
     role: ${JSON.stringify(role)},
     startedOn: '${from}',
     endedOn: '${to}',
