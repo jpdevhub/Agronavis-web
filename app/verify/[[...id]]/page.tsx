@@ -3,8 +3,9 @@ import { existsSync } from 'node:fs';
 import path from 'node:path';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, Download, Lock, Mail, OctagonX, SearchX, ShieldCheck } from 'lucide-react';
+import { Download, Lock, Mail, OctagonX, SearchX, ShieldCheck } from 'lucide-react';
 import CopyButton from '@/components/certificates/CopyButton';
+import CertificateLookup from '@/components/certificates/CertificateLookup';
 import { CERTIFICATES, ISSUER, duration, findCertificate, formatDate } from '@/data/certificates';
 
 export const metadata: Metadata = {
@@ -35,32 +36,7 @@ function Detail({ label, value, mono }: { label: string; value: string; mono?: b
   );
 }
 
-/** The lookup field, reused on the landing and not-found states. */
-function Lookup({ defaultValue, cta }: { defaultValue?: string; cta: string }) {
-  return (
-    <form action="/verify" method="get" className="flex flex-wrap items-end gap-3">
-      <div className="md-field min-w-[16rem] flex-1">
-        <input
-          id="id"
-          name="id"
-          required
-          defaultValue={defaultValue}
-          placeholder=" "
-          autoComplete="off"
-          spellCheck={false}
-          className="md-input font-mono tracking-tight"
-        />
-        <label htmlFor="id" className="md-label">Certificate number</label>
-      </div>
-      <button
-        type="submit"
-        className="md-state inline-flex h-12 shrink-0 items-center gap-2 rounded-full bg-accent px-7 text-sm font-semibold text-on-accent"
-      >
-        {cta} <ArrowRight size={16} />
-      </button>
-    </form>
-  );
-}
+
 
 export default async function VerifyPage({ params, searchParams }: Props) {
   const { id: segments } = await params;
@@ -89,7 +65,7 @@ export default async function VerifyPage({ params, searchParams }: Props) {
               Scan its QR code, or type the number printed on it.
             </p>
             <div className="mt-10">
-              <Lookup cta="Verify" />
+              <CertificateLookup cta="Verify" />
             </div>
             <p className="mt-4 px-1 text-[0.8125rem] text-ink-faint">
               Free and instant. No account needed. Capital letters and dashes do not matter.
@@ -144,7 +120,7 @@ export default async function VerifyPage({ params, searchParams }: Props) {
             with the number printed on the certificate. One wrong character is enough to miss.
           </p>
           <div className="mt-9">
-            <Lookup defaultValue={query} cta="Check again" />
+            <CertificateLookup defaultValue={query} cta="Check again" />
           </div>
           <div className="mt-10 flex gap-3 rounded-lg border border-hairline bg-surface p-6">
             <Mail size={18} className="mt-0.5 shrink-0 text-accent" />
