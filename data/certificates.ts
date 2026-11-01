@@ -57,9 +57,9 @@ export const CERTIFICATES: Certificate[] = [
     name: 'Abhishek Kumar',
     kind: 'Internship',
     role: 'Frontend Developer',
-    startedOn: '2026-08-12',
-    endedOn: '2026-09-25',
-    issuedOn: '2026-11-01',
+    startedOn: '2026-05',
+    endedOn: '2026-07',
+    issuedOn: '2026-10-30',
   },
 ];
 
@@ -72,16 +72,30 @@ export function findCertificate(input: string): Certificate | null {
   return q ? (CERTIFICATES.find((c) => squash(c.id) === q) ?? null) : null;
 }
 
+/**
+ * Dates are written at whatever precision the certificate states: YYYY-MM-DD
+ * for an exact day, YYYY-MM when the paper only says the month. The page must
+ * not claim a precision the document does not, because it tells verifiers the
+ * dates have to match the printed copy exactly.
+ */
 export const formatDate = (iso: string): string =>
-  new Date(`${iso}T00:00:00Z`).toLocaleDateString('en-IN', {
-    day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC',
+  new Date(`${iso.length === 7 ? `${iso}-01` : iso}T00:00:00Z`).toLocaleDateString('en-IN', {
+    ...(iso.length === 7 ? {} : { day: 'numeric' }),
+    month: 'long',
+    year: 'numeric',
+    timeZone: 'UTC',
   });
 
-/** A human span for the duration line. */
+/** A human span, kept to the precision the dates were given in. */
 export function duration(from: string, to: string): string {
-  const days = Math.round(
-    (Date.parse(`${to}T00:00:00Z`) - Date.parse(`${from}T00:00:00Z`)) / 86_400_000,
-  ) + 1;
+  if (from.length === 7 || to.length === 7) {
+    const [fy, fm] = from.split('-').map(Number);
+    const [ty, tm] = to.split('-').map(Number);
+    const months = (ty! - fy!) * 12 + (tm! - fm!) + 1;
+    return `${months} month${months === 1 ? '' : 's'}`;
+  }
+  const days =
+    Math.round((Date.parse(`${to}T00:00:00Z`) - Date.parse(`${from}T00:00:00Z`)) / 86_400_000) + 1;
   if (days < 14) return `${days} days`;
   const weeks = Math.floor(days / 7);
   return weeks >= 8 ? `${Math.round(days / 30.44)} months` : `${weeks} weeks`;
