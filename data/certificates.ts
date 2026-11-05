@@ -61,6 +61,15 @@ export const CERTIFICATES: Certificate[] = [
     endedOn: '2026-07',
     issuedOn: '2026-10-30',
   },
+  {
+    id: 'agn-7xyjnn226z',
+    name: 'Niraj Kumar Verma',
+    kind: 'Internship',
+    role: 'Data Analyst',
+    startedOn: '2026-08-12',
+    endedOn: '2026-09-25',
+    issuedOn: '2026-10-30',
+  },
 ];
 
 /** Strips everything that varies when a human retypes an identifier. */
